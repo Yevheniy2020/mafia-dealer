@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'dev'
-      - 'master'
+      - 'main'
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install
-        uses: npm ci
+        run: npm ci
       - name: Build
-        uses: npm run build
+        run: npm run build
 
