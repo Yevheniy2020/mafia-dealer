@@ -1,20 +1,14 @@
 import React, { FC } from 'react';
 
-enum ButtonColor {
-  WHITE = 'bg-white',
-  BLUE = 'bg-blue-500',
-}
-
-enum ButtonType {
-  SQUARE = 'rounded-md',
-  CIRCLE = 'rounded-3xl',
-}
+import { ButtonColor, ButtonType } from '@/components/common/ui/button/types';
 
 interface ButtonProps {
   text?: string;
   type?: ButtonType;
   color?: ButtonColor;
   onClick?: () => void;
+  typeSend?: 'button' | 'submit';
+  style?: string;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -22,17 +16,19 @@ const Button: FC<ButtonProps> = ({
   type = ButtonType.SQUARE,
   color = ButtonColor.WHITE,
   onClick,
+  typeSend = 'button',
+  style = '',
   ...rest
 }) => {
+  const textColor = ButtonColor.WHITE === color ? `text-black` : ``;
   return (
     <button
-      className={`group relative h-12 overflow-hidden ${type} ${color} px-2.5 text-neutral-50 transition`}
+      className={`group relative h-8 overflow-hidden ${type} ${color} px-2.5 text-neutral-50 transition ${style}`}
+      type={typeSend}
+      onClick={onClick}
       {...rest}
     >
-      <span className={ButtonColor.WHITE === color ? `text-black` : ``}>
-        {text}
-      </span>
-      <div className="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div>
+      <span className={`${textColor} text-xs leading-loose`}>{text}</span>
     </button>
   );
 };
