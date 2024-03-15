@@ -6,7 +6,7 @@ interface InputProps {
 }
 
 const Input: FC<InputProps> = ({
-  placeholder = 'Type here',
+  placeholder = 'Type here!',
   isRequired = false,
 }) => {
   return (
