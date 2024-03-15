@@ -13,7 +13,7 @@ const Card: FC<CardProps> = ({
   src = '/images/cards/test.jpg',
   width = 330,
   height = 206,
-  alt = 'Beatiful picture',
+  alt = 'Beatiful picture!',
   rounded = 'rounded-lg',
 }) => {
   return (
