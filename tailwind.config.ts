@@ -6,6 +6,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'selector',
   theme: {
     extend: {
       backgroundImage: {
@@ -15,6 +16,21 @@ const config: Config = {
       },
       width: {
         '360': '360px',
+        '60': '60px',
+      },
+      padding: {
+        '25': '25px',
+        '15': '15px',
+        '12': '12px',
+        '10': '10px',
+      },
+      colors: {
+        dark: '#111928',
+        blueDark: '#1F2A37',
+        white: '#FFFFFF',
+        gray: '#6B7280',
+        gold: '#FBBF24',
+        blue: '#1B44C8',
       },
     },
   },

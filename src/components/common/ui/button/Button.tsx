@@ -21,14 +21,31 @@ const Button: FC<ButtonProps> = ({
   ...rest
 }) => {
   const textColor = ButtonColor.WHITE === color ? `text-black` : ``;
+  const buttonClasses = `
+    group 
+    relative 
+    h-8 
+    overflow-hidden 
+    px-10 
+    text-neutral-50 
+    transition 
+    ${type} 
+    ${color} 
+    ${style}
+  `;
+  const textClasses = `
+  ${textColor} 
+  text-xs 
+  leading-loose
+  `;
   return (
     <button
-      className={`group relative h-8 overflow-hidden ${type} ${color} px-2.5 text-neutral-50 transition ${style}`}
+      className={buttonClasses}
       type={typeSend}
       onClick={onClick}
       {...rest}
     >
-      <span className={`${textColor} text-xs leading-loose`}>{text}</span>
+      <span className={textClasses}>{text}</span>
     </button>
   );
 };

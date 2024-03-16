@@ -1,4 +1,4 @@
 export enum ButtonGroupType {
   SQUARE = 'text-base',
-  CIRCLE = 'text-xs rounded-s-lg',
+  CIRCLE = 'text-base rounded-s-lg',
 }
