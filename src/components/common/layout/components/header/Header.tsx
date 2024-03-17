@@ -1,12 +1,19 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 
-import Hamburger from '@/components/common/layout/components/header/components';
+import Hamburger from '@/components/common/layout/components/header/components/Hamburger';
 import Switcher from '@/components/common/ui/switcher';
 
 const Header: FC = () => {
   return (
-    <div className="w-full p-2.5 bg-gray-800 flex justify-between items-center">
+    <div
+      className="w-full
+     p-2.5
+     bg-blueDark
+     flex
+     justify-between
+     items-center"
+    >
       <div className="flex items-center gap-1">
         <Image
           src={'/logo-svg/white-logo.svg'}

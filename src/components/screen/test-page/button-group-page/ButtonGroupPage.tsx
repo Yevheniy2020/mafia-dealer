@@ -6,7 +6,7 @@ import ButtonGroupContext from '@/components/common/ui/button-group/components';
 import { ButtonGroupType } from '@/components/common/ui/button-group/types';
 
 const ButtonGroupPage: FC = () => {
-  const [activeButton, setActiveButton] = useState('');
+  const [activeButton, setActiveButton] = useState('left');
   const handleButtonClick = (direction: string) => {
     setActiveButton(direction);
   };

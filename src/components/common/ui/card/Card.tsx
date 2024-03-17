@@ -16,12 +16,20 @@ const Card: FC<CardProps> = ({
   alt = 'Beatiful picture!',
   rounded = 'rounded-lg',
 }) => {
+  const classes = `
+    absolute 
+    top-0 
+    left-0 
+    w-full 
+    h-full 
+    bg-black 
+    bg-opacity-80 
+    ${rounded}
+  `;
   return (
     <div className={`relative max-w-fit`}>
       <Image src={src} width={width} height={height} alt={alt} />
-      <div
-        className={`absolute top-0 left-0 w-full h-full bg-black bg-opacity-80 ${rounded}`}
-      ></div>
+      <div className={classes}></div>
     </div>
   );
 };

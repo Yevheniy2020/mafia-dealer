@@ -1,6 +1,6 @@
 export enum ButtonColor {
   WHITE = 'bg-white',
-  BLUE = 'bg-blue-500',
+  BLUE = 'bg-blue',
 }
 
 export enum ButtonType {
