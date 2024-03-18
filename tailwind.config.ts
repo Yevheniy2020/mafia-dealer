@@ -24,11 +24,15 @@ const config: Config = {
         '12': '12px',
         '10': '10px',
       },
+      height: {
+        '1': '1px',
+      },
       colors: {
         dark: '#111928',
         blueDark: '#1F2A37',
         white: '#FFFFFF',
         gray: '#6B7280',
+        lightGray: '#E5E7EB',
         gold: '#FBBF24',
         blue: '#1B44C8',
       },

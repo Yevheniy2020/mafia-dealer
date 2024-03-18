@@ -2,14 +2,15 @@ import React, { FC } from 'react';
 
 interface HamburgerProps {
   isActive?: boolean;
+  onClick?: () => void;
 }
 
 enum HamburgerActive {
-  WHITE = 'bg-white',
+  WHITE = 'dark:bg-white bg-dark',
   GOLD = 'bg-gold',
 }
 
-const Hamburger: FC<HamburgerProps> = ({ isActive = false }) => {
+const Hamburger: FC<HamburgerProps> = ({ isActive = false, onClick }) => {
   const classes = `
   block 
   h-0.5 
@@ -18,7 +19,7 @@ const Hamburger: FC<HamburgerProps> = ({ isActive = false }) => {
   ${isActive ? HamburgerActive.GOLD : HamburgerActive.WHITE} 
   `;
   return (
-    <div className="flex flex-col gap-1 cursor-pointer">
+    <div onClick={onClick} className="flex flex-col gap-1 cursor-pointer">
       <span className={classes}></span>
       <span className={classes}></span>
       <span className={classes}></span>
