@@ -2,7 +2,7 @@
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
 
-import Hamburger from '@/components/common/layout/components/header/components/Hamburger';
+import Hamburger from '@/components/common/layout/header/components/Hamburger';
 import Line from '@/components/common/ui/line';
 import SubLink from '@/components/common/ui/link';
 import Switcher from '@/components/common/ui/switcher';
@@ -14,7 +14,10 @@ const Header: FC = () => {
       className="
        relative
        w-full
-       p-2.5
+       pb-2.5
+       pt-2.5
+       pl-15
+       pr-15
        bg-lightGray
        dark:bg-blueDark
        flex
@@ -58,7 +61,8 @@ const Header: FC = () => {
         dark:bg-blueDark
         flex
         flex-col
-        gap-1.5"
+        gap-1.5
+        z-40"
         >
           <SubLink href="#" text="Home" style="pl-7 mt-3" />
           <Line style="w-80 ml-4" />
