@@ -25,8 +25,9 @@ const config: Config = {
         '10': '10px',
       },
       height: {
-        '1': '1px',
+        '1px': '1px',
       },
+
       colors: {
         dark: '#111928',
         blueDark: '#1F2A37',

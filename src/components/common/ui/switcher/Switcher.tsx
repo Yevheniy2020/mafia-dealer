@@ -16,11 +16,11 @@ const Switcher: FC<SwitcherProps> = ({ onChange, isActive, isDark = true }) => {
   w-14 
   h-7 
   bg-white
-  dark:bg-black
+  dark:bg-dark
   rounded-md
   peer-checked:after:translate-x-full 
   peer-checked:after:border-white 
-  dark:peer-checked:after:border-black 
+  dark:peer-checked:after:border-dark 
   after:content-[''] 
   after:absolute 
   after:top-0.5
@@ -30,7 +30,7 @@ const Switcher: FC<SwitcherProps> = ({ onChange, isActive, isDark = true }) => {
   after:h-6 after:w-6 
   after:transition-all 
   peer-checked:bg-white
-  dark:peer-checked:bg-black
+  dark:peer-checked:bg-dark
   `;
   return (
     <label className="inline-flex items-center cursor-pointer">

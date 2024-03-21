@@ -13,22 +13,28 @@ const Card: FC<CardProps> = ({
   src = '/images/cards/test.jpg',
   width = 330,
   height = 206,
-  alt = 'Beatiful picture!',
+  alt = 'Beautiful picture!',
   rounded = 'rounded-lg',
 }) => {
   const classes = `
     absolute 
-    top-0 
+    top-0
     left-0 
-    w-full 
-    h-full 
-    bg-black 
+    w-full  
+    h-full
+    bg-dark 
     bg-opacity-80 
     ${rounded}
   `;
   return (
     <div className={`relative max-w-fit`}>
-      <Image src={src} width={width} height={height} alt={alt} />
+      <Image
+        className={rounded}
+        src={src}
+        width={width}
+        height={height}
+        alt={alt}
+      />
       <div className={classes}></div>
     </div>
   );
