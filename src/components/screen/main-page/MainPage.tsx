@@ -30,7 +30,7 @@ const MainPage: FC = () => {
           />
         </div>
       </div>
-      <h3 className="mt-5 text-2xl leading-none text-white">
+      <h3 className="mt-5 text-2xl leading-none text-black dark:text-white">
         Include all popular roles
       </h3>
       <div className="mt-3.5">
