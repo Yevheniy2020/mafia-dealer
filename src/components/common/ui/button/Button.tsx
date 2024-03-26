@@ -35,7 +35,7 @@ const Button: FC<ButtonProps> = ({
   `;
   const textClasses = `
   ${textColor} 
-  text-xs 
+  text-base
   leading-loose
   `;
   return (
