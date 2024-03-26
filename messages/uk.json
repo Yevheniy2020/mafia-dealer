@@ -1,0 +1,15 @@
+{
+  "MainPage": {
+    "title": "Гра для компанії друзів",
+    "buttonContent1": "Грати",
+    "buttonContent2": "Читайти інструкцію",
+    "subtitle": "Включає всі популярні ролі",
+    "mafia": "Мафія",
+    "sherif": "Шериф",
+    "courtesan": "Куртизанка",
+    "doctor": "Доктор",
+    "maniac": "Маніяк",
+    "civilian": "Цивільний",
+    "buttonContent3": "Дізнатись більше про ролі"
+  }
+}

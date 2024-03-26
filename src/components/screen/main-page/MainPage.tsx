@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
+import { useTranslations } from 'next-intl';
 
 import Button from '@/components/common/ui/button';
 import { ButtonColor, ButtonType } from '@/components/common/ui/button/types';
 import Card from '@/components/common/ui/card';
 
 const MainPage: FC = () => {
+  const t = useTranslations('MainPage');
   return (
     <div className="p-15 bg-white dark:bg-dark">
       <div className="relative ">
@@ -15,23 +17,23 @@ const MainPage: FC = () => {
           alt="Main image with a group of people"
         />
         <h1 className="absolute left-5 text-2xl text-white w-52 top-14 leading-none">
-          The game for a company friends
+          {t('title')}
         </h1>
         <div className="absolute bottom-5 left-5 flex justify-center gap-2.5">
           <Button
             type={ButtonType.SQUARE}
             color={ButtonColor.BLUE}
-            text="Play"
+            text={t('buttonContent1')}
           />
           <Button
             type={ButtonType.SQUARE}
             color={ButtonColor.WHITE}
-            text="Read the instruction"
+            text={t('buttonContent2')}
           />
         </div>
       </div>
       <h3 className="mt-5 text-2xl leading-none text-black dark:text-white">
-        Include all popular roles
+        {t('subtitle')}
       </h3>
       <div className="mt-3.5">
         <div className="flex justify-between">
@@ -40,10 +42,10 @@ const MainPage: FC = () => {
               src="/images/cards/mafia.jpg"
               width={155}
               height={155}
-              alt="Mafia"
+              alt={t('mafia')}
             />
             <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl leading-none text-white font-semibold">
-              Mafia
+              {t('mafia')}
             </span>
           </div>
           <div className="relative">
@@ -51,10 +53,10 @@ const MainPage: FC = () => {
               src="/images/cards/sherif.jpg"
               width={155}
               height={155}
-              alt="Sherif"
+              alt={t('sherif')}
             />
             <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl leading-none text-white font-semibold">
-              Sherif
+              {t('sherif')}
             </span>
           </div>
         </div>
@@ -64,10 +66,10 @@ const MainPage: FC = () => {
               src="/images/cards/courtesan.jpg"
               width={155}
               height={155}
-              alt="Courtesan"
+              alt={t('courtesan')}
             />
             <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl leading-none text-white font-semibold">
-              Courtesan
+              {t('courtesan')}
             </span>
           </div>
           <div className="relative">
@@ -75,10 +77,10 @@ const MainPage: FC = () => {
               src="/images/cards/doctor.jpg"
               width={155}
               height={155}
-              alt="Doctor"
+              alt={t('doctor')}
             />
             <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl leading-none text-white font-semibold">
-              Doctor
+              {t('doctor')}
             </span>
           </div>
         </div>
@@ -88,10 +90,10 @@ const MainPage: FC = () => {
               src="/images/cards/maniac.jpg"
               width={155}
               height={155}
-              alt="Maniac"
+              alt={t('maniac')}
             />
             <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl leading-none text-white font-semibold">
-              Maniac
+              {t('maniac')}
             </span>
           </div>
           <div className="relative">
@@ -99,10 +101,10 @@ const MainPage: FC = () => {
               src="/images/cards/civilian.jpg"
               width={155}
               height={155}
-              alt="Civilian"
+              alt={t('civilian')}
             />
             <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl leading-none text-white font-semibold">
-              Civilian
+              {t('civilian')}
             </span>
           </div>
         </div>
@@ -111,7 +113,7 @@ const MainPage: FC = () => {
         <Button
           type={ButtonType.SQUARE}
           color={ButtonColor.BLUE}
-          text="Read more about roles"
+          text={t('buttonContent3')}
         />
       </div>
     </div>

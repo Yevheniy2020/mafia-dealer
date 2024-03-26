@@ -1,6 +1,8 @@
 'use client';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 import Hamburger from '@/components/common/layout/header/components/Hamburger';
 import Line from '@/components/common/ui/line';
@@ -9,6 +11,13 @@ import Switcher from '@/components/common/ui/switcher';
 
 const Header: FC = () => {
   const [isActiveHamburger, setIsActiveHamburger] = useState(false);
+  const locale = useLocale();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsActiveHamburger(false);
+  }, [pathname]);
+
   return (
     <div
       className="
@@ -51,7 +60,7 @@ const Header: FC = () => {
         />
       </div>
       {isActiveHamburger && (
-        <div
+        <span
           className="absolute
         top-12
         left-0
@@ -64,17 +73,21 @@ const Header: FC = () => {
         gap-1.5
         z-40"
         >
-          <SubLink href="#" text="Home" style="pl-7 mt-3" />
+          <SubLink text="Home" style="pl-7 mt-3" href={`/`} />
           <Line style="w-80 ml-4" />
           <SubLink href="#" text="Play" style="pl-7" />
           <Line style="w-80 ml-4" />
           <SubLink href="#" text="Read the instruction" style="pl-7" />
           <Line style="w-80 ml-4" />
-          <SubLink href="#" text="Localization" style="pl-7" />
+          <SubLink
+            text="Localization"
+            style="pl-7"
+            href={`${locale}/localization`}
+          />
           <Line style="w-80 ml-4" />
           <SubLink href="#" text="About roles" style="pl-7" />
           <Line style="w-80 ml-4" />
-        </div>
+        </span>
       )}
     </div>
   );

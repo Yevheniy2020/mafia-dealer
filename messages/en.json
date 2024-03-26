@@ -1,0 +1,15 @@
+{
+  "MainPage": {
+    "title": "The game for a company friends",
+    "buttonContent1": "Play",
+    "buttonContent2": "Read the instruction",
+    "subtitle": "Include all popular roles",
+    "mafia": "Mafia",
+    "sherif": "Sherif",
+    "courtesan": "Courtesan",
+    "doctor": "Doctor",
+    "maniac": "Maniac",
+    "civilian": "Civilian",
+    "buttonContent3": "Read more about roles"
+  }
+}
