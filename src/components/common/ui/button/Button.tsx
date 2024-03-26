@@ -24,9 +24,9 @@ const Button: FC<ButtonProps> = ({
   const buttonClasses = `
     group 
     relative 
-    h-8 
+    h-9 
     overflow-hidden 
-    px-10 
+    px-12 
     text-neutral-50 
     transition 
     ${type} 
