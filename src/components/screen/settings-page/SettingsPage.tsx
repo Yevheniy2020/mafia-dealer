@@ -1,5 +1,6 @@
 'use client';
 import React, { FC, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import Button from '@/components/common/ui/button';
 import { ButtonColor, ButtonType } from '@/components/common/ui/button/types';
@@ -9,9 +10,21 @@ import Card from '@/components/common/ui/card';
 import Input from '@/components/common/ui/input';
 import Line from '@/components/common/ui/line';
 
+import { useSettingsContext } from '../../../../providers/SettingsProvider';
+
+// Mafia: Starts as 1 member for 1-6 players and then scales up by 1 additional member for every 5-6 additional players.
+//   Sheriff: Always included when there are at least 4 players.
+//   Doctor: Included when there are at least 8 players, then adds another every 20 players.
+//   Courtesans: Introduced at 15 players, with an additional courtesan added every 30 players.
+//   Maniacs: Introduced at 12 players, adding another every 25 players.
+//   Civilians: Fill the remaining player slots.
+
 const SettingsPage: FC = () => {
+  const { settingsValue, setSettingsValue } = useSettingsContext();
+  const router = useRouter();
   const [activeGroupButton, setActiveGroupButton] = useState('left');
-  const handleGroupButtonClick = (direction: string) => {
+
+  const handlerGroupButtonClick = (direction: string) => {
     setActiveGroupButton(direction);
   };
   return (
@@ -36,13 +49,13 @@ const SettingsPage: FC = () => {
                 isRight={false}
                 text="Automatic"
                 isActive={activeGroupButton === 'left'}
-                onClick={() => handleGroupButtonClick('left')}
+                onClick={() => handlerGroupButtonClick('left')}
               />
               <ButtonGroup
                 isRight={true}
                 text="Manual"
                 isActive={activeGroupButton === 'right'}
-                onClick={() => handleGroupButtonClick('right')}
+                onClick={() => handlerGroupButtonClick('right')}
               />
             </ButtonGroupContext>
           </div>
@@ -51,43 +64,100 @@ const SettingsPage: FC = () => {
         {activeGroupButton === 'left' ? (
           <div className="pt-15">
             <h6 className="text-2xl text-white mb-2.5">Number of players</h6>
-            <Input placeholder="Here" />
+            <Input
+              placeholder="Here"
+              onChange={e => setSettingsValue({ players: +e.target.value })}
+            />
             <Line style="mt-2.5" />
           </div>
         ) : (
           <div>
             <div className="pt-15">
               <h6 className="text-2xl text-white mb-2.5">Number of players</h6>
-              <Input placeholder="Here" />
+              <Input
+                name="mafia"
+                placeholder="Here"
+                onChange={e =>
+                  setSettingsValue(prevState => ({
+                    ...prevState,
+                    [e.target.name]: +e.target.value,
+                  }))
+                }
+              />
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
               <h6 className="text-2xl text-white mb-2.5">Number of sheriffs</h6>
-              <Input placeholder="Here" />
+              <Input
+                name="sherif"
+                placeholder="Here"
+                onChange={e =>
+                  setSettingsValue(prevState => ({
+                    ...prevState,
+                    [e.target.name]: +e.target.value,
+                  }))
+                }
+              />
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
               <h6 className="text-2xl text-white mb-2.5">Number of doctors</h6>
-              <Input placeholder="Here" />
+              <Input
+                name="doctor"
+                placeholder="Here"
+                onChange={e =>
+                  setSettingsValue(prevState => ({
+                    ...prevState,
+                    [e.target.name]: +e.target.value,
+                  }))
+                }
+              />
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
               <h6 className="text-2xl text-white mb-2.5">
                 Number of courtesans
               </h6>
-              <Input placeholder="Here" />
+              <Input
+                name="courtesan"
+                placeholder="Here"
+                onChange={e =>
+                  setSettingsValue(prevState => ({
+                    ...prevState,
+                    [e.target.name]: +e.target.value,
+                  }))
+                }
+              />
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
               <h6 className="text-2xl text-white mb-2.5">Number of maniacs</h6>
-              <Input placeholder="Here" />
+              <Input
+                name="maniac"
+                placeholder="Here"
+                onChange={e =>
+                  setSettingsValue(prevState => ({
+                    ...prevState,
+                    [e.target.name]: +e.target.value,
+                  }))
+                }
+              />
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
               <h6 className="text-2xl text-white mb-2.5">
                 Number of civilians
               </h6>
-              <Input placeholder="Here" />
+              <Input
+                name="civilian"
+                placeholder="Here"
+                onChange={e =>
+                  setSettingsValue(prevState => ({
+                    ...prevState,
+                    [e.target.name]: +e.target.value,
+                  }))
+                }
+              />
               <Line style="mt-2.5" />
             </div>
           </div>
@@ -98,6 +168,9 @@ const SettingsPage: FC = () => {
           type={ButtonType.SQUARE}
           color={ButtonColor.BLUE}
           text="Start"
+          onClick={() => {
+            router.push(`card`);
+          }}
         />
       </div>
     </div>

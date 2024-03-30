@@ -6,7 +6,7 @@ interface ButtonProps {
   text?: string;
   type?: ButtonType;
   color?: ButtonColor;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   typeSend?: 'button' | 'submit';
   style?: string;
 }

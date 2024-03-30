@@ -4,6 +4,8 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Footer from '@/components/common/layout/footer';
 import Header from '@/components/common/layout/header';
 
+import { SettingsProvider } from '../../../../providers/SettingsProvider';
+
 type Props = {
   children: ReactNode;
   params: { locale: string };
@@ -29,11 +31,13 @@ const Layout = ({ children, params: { locale } }: Props) => {
   // Enable static rendering
   unstable_setRequestLocale(locale);
   return (
-    <div lang={locale} className="w-360">
-      <Header />
-      {children}
-      <Footer />
-    </div>
+    <SettingsProvider>
+      <div lang={locale} className="w-360">
+        <Header />
+        {children}
+        <Footer />
+      </div>
+    </SettingsProvider>
   );
 };
 
