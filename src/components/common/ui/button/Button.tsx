@@ -1,12 +1,15 @@
+'use client';
 import React, { FC } from 'react';
 
 import { ButtonColor, ButtonType } from '@/components/common/ui/button/types';
+import { useRouter } from '@/navigation';
 
 interface ButtonProps {
   text?: string;
   type?: ButtonType;
   color?: ButtonColor;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  sendLink?: string;
   typeSend?: 'button' | 'submit';
   style?: string;
 }
@@ -16,10 +19,12 @@ const Button: FC<ButtonProps> = ({
   type = ButtonType.SQUARE,
   color = ButtonColor.WHITE,
   onClick,
+  sendLink = '',
   typeSend = 'button',
   style = '',
   ...rest
 }) => {
+  const router = useRouter();
   const textColor = ButtonColor.WHITE === color ? `text-black` : ``;
   const buttonClasses = `
     group 
@@ -42,7 +47,13 @@ const Button: FC<ButtonProps> = ({
     <button
       className={buttonClasses}
       type={typeSend}
-      onClick={onClick}
+      onClick={
+        typeSend != 'button'
+          ? onClick
+          : () => {
+              router.push(sendLink);
+            }
+      }
       {...rest}
     >
       <span className={textClasses}>{text}</span>
@@ -50,4 +61,5 @@ const Button: FC<ButtonProps> = ({
   );
 };
 
+// router.push('/settings');
 export default Button;

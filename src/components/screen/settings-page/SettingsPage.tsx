@@ -1,6 +1,5 @@
 'use client';
 import React, { FC, useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 import Button from '@/components/common/ui/button';
 import { ButtonColor, ButtonType } from '@/components/common/ui/button/types';
@@ -20,15 +19,16 @@ import { useSettingsContext } from '../../../../providers/SettingsProvider';
 //   Civilians: Fill the remaining player slots.
 
 const SettingsPage: FC = () => {
-  const { settingsValue, setSettingsValue } = useSettingsContext();
-  const router = useRouter();
+  const { setSettingsValue } = useSettingsContext();
   const [activeGroupButton, setActiveGroupButton] = useState('left');
 
   const handlerGroupButtonClick = (direction: string) => {
     setActiveGroupButton(direction);
   };
   return (
-    <div className="p-15 bg-white dark:bg-dark">
+    <div
+      className={`p-15 bg-white dark:bg-dark ${activeGroupButton == 'left' && 'h-fullVH'}`}
+    >
       <div className="relative">
         <Card
           src="/images/cards/settings.jpg"
@@ -168,9 +168,7 @@ const SettingsPage: FC = () => {
           type={ButtonType.SQUARE}
           color={ButtonColor.BLUE}
           text="Start"
-          onClick={() => {
-            router.push(`card`);
-          }}
+          sendLink="/card"
         />
       </div>
     </div>

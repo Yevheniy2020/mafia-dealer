@@ -7,6 +7,7 @@ import { ButtonGroupType } from '@/components/common/ui/button-group/types';
 import Card from '@/components/common/ui/card';
 import calculateMafiaRoles from '@/components/screen/card-page/util/calculateMafiaRoles';
 import generateRandomRoles from '@/components/screen/card-page/util/generateRandomRoles';
+import { useRouter } from '@/navigation';
 
 import { useSettingsContext } from '../../../../providers/SettingsProvider';
 
@@ -32,58 +33,56 @@ const CardsTitle = {
   finish: 'NO MORE CARDS',
 };
 
-enum TypeCard {
+enum TypeNoRoleCard {
   DEFAULT = 'default',
-  MAFIA = 'mafia',
-  SHERIF = 'sherif',
-  DOCTOR = 'doctor',
-  CIVILIAN = 'civilian',
-  MANIAC = 'maniac',
-  COURTESAN = 'courtesan',
   FINISH = 'finish',
 }
 
 const CardPage: FC = () => {
+  const router = useRouter();
   const { settingsValue } = useSettingsContext();
   const [rolesList, setRolesList] = useState<string[]>(['']);
   const [activeButton, setActiveButton] = useState('');
   const [counterRolesList, setCounterRolesList] = useState(0);
-  const [currentType, setCurrentType] = useState(TypeCard.DEFAULT);
+  const [currentType, setCurrentType] = useState(TypeNoRoleCard.DEFAULT);
   const [isFinish, setIsFinish] = useState(false);
 
   useEffect(() => {
-    if ('players' in settingsValue) {
-      setRolesList(
-        generateRandomRoles(calculateMafiaRoles(settingsValue['players'])),
-      );
-    } else {
-      setRolesList(generateRandomRoles(settingsValue));
-    }
+    !rolesList.length && router.push('/settings');
+  }, [rolesList]);
+
+  useEffect(() => {
+    'players' in settingsValue
+      ? setRolesList(
+          generateRandomRoles(calculateMafiaRoles(settingsValue['players'])),
+        )
+      : setRolesList(generateRandomRoles(settingsValue));
   }, []);
   const handleButtonLeftClick = () => {
-    setCurrentType(rolesList[counterRolesList] as TypeCard);
+    setCurrentType(rolesList[counterRolesList] as TypeNoRoleCard);
     setIsFinish(rolesList.length === counterRolesList);
     setActiveButton('left');
-    console.log(rolesList);
-    console.log(rolesList[counterRolesList]);
   };
 
   const handleButtonRightClick = () => {
     setActiveButton('right');
     setCounterRolesList(prevState => prevState + 1);
-    setCurrentType(TypeCard.DEFAULT);
+    setCurrentType(TypeNoRoleCard.DEFAULT);
   };
   return (
-    <div className="p-15 bg-white dark:bg-dark">
+    <div className="p-15 bg-white dark:bg-dark h-fullVH flex flex-col justify-center ">
       <div className="relative">
+        <div className="absolute top-3 right-3 text-white ">
+          {counterRolesList} / {rolesList.length}
+        </div>
         {!isFinish ? (
-          currentType === TypeCard.DEFAULT ? (
-            <>
+          currentType === TypeNoRoleCard.DEFAULT ? (
+            <div className="">
               <div className="w-full h-330 bg-blueDark rounded-lg"></div>
               <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white text-9xl leading-none ">
                 {CardsTitle[currentType]}
               </h1>
-            </>
+            </div>
           ) : (
             <>
               <Card
@@ -100,13 +99,13 @@ const CardPage: FC = () => {
         ) : (
           <>
             <Card
-              src={CardsImages[TypeCard.FINISH]}
+              src={CardsImages[TypeNoRoleCard.FINISH]}
               width={330}
               height={330}
               alt="The role"
             />
             <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white w-40 text-center leading-none">
-              {CardsTitle[TypeCard.FINISH]}
+              {CardsTitle[TypeNoRoleCard.FINISH]}
             </h1>
           </>
         )}

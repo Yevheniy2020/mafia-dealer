@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import Link from 'next/link';
+
+import { Link } from '@/navigation';
 
 interface SubLinkProps {
   text: string;
