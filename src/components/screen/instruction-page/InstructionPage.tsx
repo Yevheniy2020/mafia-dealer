@@ -92,6 +92,7 @@ const InstructionPage: FC = () => {
           type={ButtonType.SQUARE}
           color={ButtonColor.BLUE}
           text="Return to home"
+          sendLink="/"
         />
       </div>
     </div>

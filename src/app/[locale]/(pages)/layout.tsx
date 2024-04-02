@@ -32,9 +32,11 @@ const Layout = ({ children, params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
   return (
     <SettingsProvider>
-      <div lang={locale} className="w-360">
+      <div lang={locale} className="bg-white dark:bg-dark">
         <Header />
-        {children}
+        <div className="flex justify-center">
+          <div className="w-360">{children}</div>
+        </div>
         <Footer />
       </div>
     </SettingsProvider>
