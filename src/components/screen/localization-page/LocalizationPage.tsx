@@ -7,7 +7,7 @@ import Line from '@/components/common/ui/line';
 
 const LocalizationPage: FC = () => {
   return (
-    <div className="p-15 bg-white dark:bg-dark">
+    <div className="p-15 bg-white dark:bg-dark h-fullVH">
       <div className="relative">
         <Card
           src="/images/cards/localization.jpg"

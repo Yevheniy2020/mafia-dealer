@@ -24,11 +24,13 @@ const MainPage: FC = () => {
             type={ButtonType.SQUARE}
             color={ButtonColor.BLUE}
             text={t('buttonContent1')}
+            sendLink="/settings"
           />
           <Button
             type={ButtonType.SQUARE}
             color={ButtonColor.WHITE}
             text={t('buttonContent2')}
+            sendLink="/instruction"
           />
         </div>
       </div>
@@ -114,6 +116,7 @@ const MainPage: FC = () => {
           type={ButtonType.SQUARE}
           color={ButtonColor.BLUE}
           text={t('buttonContent3')}
+          sendLink="/not-ready"
         />
       </div>
     </div>

@@ -27,6 +27,7 @@ const config: Config = {
       height: {
         '330': '330px',
         '1px': '1px',
+        fullVH: 'calc(100vh - 121px)',
       },
 
       colors: {

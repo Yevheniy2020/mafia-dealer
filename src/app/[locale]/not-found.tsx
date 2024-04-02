@@ -6,9 +6,9 @@ import Card from '@/components/common/ui/card';
 
 const NotFound = () => {
   return (
-    <div className="w-360">
+    <div className="w-360 ">
       <Header />
-      <div className="bg-blueDark flex justify-center items-center">
+      <div className="bg-blueDark flex justify-center items-center h-fullVH">
         <div className="relative">
           <Card
             src="/images/cards/found.jpg"
