@@ -21,8 +21,8 @@ const InstructionPage: FC = () => {
       </div>
       <div className="pt-15">
         <div className="mt-2.5">
-          <h6 className="text-2xl text-white ">Objective</h6>
-          <div className="text-base text-white  mt-2.5 mb-2.5">
+          <h6 className="text-2xl dark:text-white text-black ">Objective</h6>
+          <div className="text-base dark:text-white text-black  mt-2.5 mb-2.5">
             If you are part of the mafia, the object of the game is to eliminate
             all the other players. If you are not part of the mafia, the object
             of the game is to eliminate all the mafia players.
@@ -30,8 +30,8 @@ const InstructionPage: FC = () => {
           <Line />
         </div>
         <div className="mt-2.5">
-          <h6 className="text-2xl text-white ">Game Play</h6>
-          <div className="text-base text-white  mt-2.5 mb-2.5">
+          <h6 className="text-2xl dark:text-white text-black ">Game Play</h6>
+          <div className="text-base dark:text-white text-black  mt-2.5 mb-2.5">
             Each round begins with the moderator telling all players to close
             their eyes. Then, the moderator has all the mafia players open their
             eyes. Together the mafia players decide one other player to be
@@ -59,16 +59,16 @@ const InstructionPage: FC = () => {
           <Line />
         </div>
         <div className="mt-2.5">
-          <h6 className="text-2xl text-white ">Winning</h6>
-          <div className="text-base text-white  mt-2.5 mb-2.5">
+          <h6 className="text-2xl dark:text-white text-black ">Winning</h6>
+          <div className="text-base dark:text-white text-black  mt-2.5 mb-2.5">
             The mafia wins if all other players are eliminated. The other
             players win if all the mafia is eliminated.
           </div>
           <Line />
         </div>
         <div className="mt-2.5">
-          <h6 className="text-2xl text-white ">Rules</h6>
-          <ul className="text-base text-white  mt-2.5 mb-2.5 list-disc pl-4">
+          <h6 className="text-2xl dark:text-white text-black ">Rules</h6>
+          <ul className="text-base dark:text-white text-black  mt-2.5 mb-2.5 list-disc pl-4">
             <li>
               When a player is eliminated, the card is not shown to the other
               players. If all the sheriffs or the doctor is out of the game, the
