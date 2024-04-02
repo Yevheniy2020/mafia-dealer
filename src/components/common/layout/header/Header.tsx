@@ -62,7 +62,7 @@ const Header: FC = () => {
           className="absolute
         top-12
         left-0
-        w-360
+        w-full
         h-56
         bg-white
         dark:bg-blueDark
@@ -72,19 +72,19 @@ const Header: FC = () => {
         z-40"
         >
           <SubLink text="Home" style="pl-7 mt-3" href={`/`} />
-          <Line style="w-80 ml-4" />
+          <Line style="w-fullLine ml-4" />
           <SubLink href={`/settings`} text="Play" style="pl-7" />
-          <Line style="w-80 ml-4" />
+          <Line style="w-fullLine ml-4" />
           <SubLink
             href={`/instruction`}
             text="Read the instruction"
             style="pl-7"
           />
-          <Line style="w-80 ml-4" />
+          <Line style="w-fullLine ml-4" />
           <SubLink text="Localization" style="pl-7" href={`/localization`} />
-          <Line style="w-80 ml-4" />
+          <Line style="w-fullLine ml-4" />
           <SubLink href="/not-ready" text="About roles" style="pl-7" />
-          <Line style="w-80 ml-4" />
+          <Line style="w-fullLine ml-4" />
         </span>
       )}
     </div>

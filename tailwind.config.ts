@@ -17,6 +17,7 @@ const config: Config = {
       width: {
         '360': '360px',
         '60': '60px',
+        fullLine: 'calc(100% - 32px)',
       },
       padding: {
         '25': '25px',
