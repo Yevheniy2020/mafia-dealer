@@ -42,7 +42,7 @@ const SettingsPage: FC = () => {
       </div>
       <div className="pt-15">
         <div>
-          <h6 className="text-2xl text-white">Mode</h6>
+          <h6 className="text-2xl dark:text-white text-black">Mode</h6>
           <div className="mt-2.5 mb-2.5">
             <ButtonGroupContext>
               <ButtonGroup
@@ -63,7 +63,9 @@ const SettingsPage: FC = () => {
         </div>
         {activeGroupButton === 'left' ? (
           <div className="pt-15">
-            <h6 className="text-2xl text-white mb-2.5">Number of players</h6>
+            <h6 className="text-2xl  mb-2.5 dark:text-white text-black">
+              Number of players
+            </h6>
             <Input
               placeholder="Here"
               onChange={e => setSettingsValue({ players: +e.target.value })}
@@ -73,7 +75,9 @@ const SettingsPage: FC = () => {
         ) : (
           <div>
             <div className="pt-15">
-              <h6 className="text-2xl text-white mb-2.5">Number of players</h6>
+              <h6 className="text-2xl dark:text-white text-black mb-2.5">
+                Number of players
+              </h6>
               <Input
                 name="mafia"
                 placeholder="Here"
@@ -87,7 +91,9 @@ const SettingsPage: FC = () => {
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
-              <h6 className="text-2xl text-white mb-2.5">Number of sheriffs</h6>
+              <h6 className="text-2xl dark:text-white text-black mb-2.5">
+                Number of sheriffs
+              </h6>
               <Input
                 name="sherif"
                 placeholder="Here"
@@ -101,7 +107,9 @@ const SettingsPage: FC = () => {
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
-              <h6 className="text-2xl text-white mb-2.5">Number of doctors</h6>
+              <h6 className="text-2xl dark:text-white text-black mb-2.5">
+                Number of doctors
+              </h6>
               <Input
                 name="doctor"
                 placeholder="Here"
@@ -115,7 +123,7 @@ const SettingsPage: FC = () => {
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
-              <h6 className="text-2xl text-white mb-2.5">
+              <h6 className="text-2xl dark:text-white text-black mb-2.5">
                 Number of courtesans
               </h6>
               <Input
@@ -131,7 +139,9 @@ const SettingsPage: FC = () => {
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
-              <h6 className="text-2xl text-white mb-2.5">Number of maniacs</h6>
+              <h6 className="text-2xl dark:text-white text-black mb-2.5">
+                Number of maniacs
+              </h6>
               <Input
                 name="maniac"
                 placeholder="Here"
@@ -145,7 +155,7 @@ const SettingsPage: FC = () => {
               <Line style="mt-2.5" />
             </div>
             <div className="pt-15">
-              <h6 className="text-2xl text-white mb-2.5">
+              <h6 className="text-2xl dark:text-white text-black mb-2.5">
                 Number of civilians
               </h6>
               <Input

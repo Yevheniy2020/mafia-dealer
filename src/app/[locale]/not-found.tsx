@@ -8,7 +8,7 @@ const NotFound = () => {
   return (
     <div className="w-360 ">
       <Header />
-      <div className="bg-blueDark flex justify-center items-center h-fullVH">
+      <div className="dark:bg-blueDark bg-white flex justify-center items-center h-fullVH">
         <div className="relative">
           <Card
             src="/images/cards/found.jpg"
