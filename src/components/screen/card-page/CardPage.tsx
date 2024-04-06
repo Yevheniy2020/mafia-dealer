@@ -1,5 +1,6 @@
 'use client';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import ButtonGroup from '@/components/common/ui/button-group';
 import ButtonGroupContext from '@/components/common/ui/button-group/components';
@@ -22,23 +23,13 @@ const CardsImages = {
   finish: '/images/game-cards/finish.jpg',
 };
 
-const CardsTitle = {
-  default: '?',
-  mafia: 'YOU ARE MAFIA',
-  sherif: 'YOU ARE SHERIF',
-  doctor: 'YOU ARE DOCTOR',
-  civilian: 'YOU ARE CIVILIAN',
-  maniac: 'YOU ARE MANIAC',
-  courtesan: 'YOU ARE COURTESAN',
-  finish: 'NO MORE CARDS',
-};
-
 enum TypeNoRoleCard {
   DEFAULT = 'default',
   FINISH = 'finish',
 }
 
 const CardPage: FC = () => {
+  const t = useTranslations('CardPage');
   const router = useRouter();
   const { settingsValue } = useSettingsContext();
   const [rolesList, setRolesList] = useState<string[]>(['']);
@@ -47,9 +38,23 @@ const CardPage: FC = () => {
   const [currentType, setCurrentType] = useState(TypeNoRoleCard.DEFAULT);
   const [isFinish, setIsFinish] = useState(false);
 
+  const CardsTitle = useMemo(
+    () => ({
+      default: '?',
+      mafia: t('mafia'),
+      sherif: t('sherif'),
+      doctor: t('doctor'),
+      civilian: t('civilian'),
+      maniac: t('maniac'),
+      courtesan: t('courtesan'),
+      finish: t('finish'),
+    }),
+    [t],
+  );
+
   useEffect(() => {
     !rolesList.length && router.push('/settings');
-  }, [rolesList]);
+  }, [rolesList, router]);
 
   useEffect(() => {
     'players' in settingsValue
@@ -57,7 +62,7 @@ const CardPage: FC = () => {
           generateRandomRoles(calculateMafiaRoles(settingsValue['players'])),
         )
       : setRolesList(generateRandomRoles(settingsValue));
-  }, []);
+  }, [settingsValue]);
   const handleButtonLeftClick = () => {
     setCurrentType(rolesList[counterRolesList] as TypeNoRoleCard);
     setIsFinish(rolesList.length === counterRolesList);
@@ -117,14 +122,14 @@ const CardPage: FC = () => {
               isRight={false}
               isActive={activeButton === 'left'}
               type={ButtonGroupType.SQUARE}
-              text="Open"
+              text={t('buttonContent1')}
               onClick={handleButtonLeftClick}
             />
             <ButtonGroup
               isRight={true}
               type={ButtonGroupType.SQUARE}
               isActive={activeButton === 'right'}
-              text="Next"
+              text={t('buttonContent2')}
               onClick={handleButtonRightClick}
             />
           </ButtonGroupContext>

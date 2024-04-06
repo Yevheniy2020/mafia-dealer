@@ -2,6 +2,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 import Hamburger from '@/components/common/layout/header/components/Hamburger';
 import Line from '@/components/common/ui/line';
@@ -9,6 +10,7 @@ import SubLink from '@/components/common/ui/link';
 import Switcher from '@/components/common/ui/switcher';
 
 const Header: FC = () => {
+  const t = useTranslations('Navigation');
   const [isActiveHamburger, setIsActiveHamburger] = useState(false);
   const pathname = usePathname();
 
@@ -71,19 +73,19 @@ const Header: FC = () => {
         gap-1.5
         z-40"
         >
-          <SubLink text="Home" style="pl-7 mt-3" href={`/`} />
+          <SubLink text={t('home')} style="pl-7 mt-3" href={`/`} />
           <Line style="w-fullLine ml-4" />
-          <SubLink href={`/settings`} text="Play" style="pl-7" />
+          <SubLink href={`/settings`} text={t('play')} style="pl-7" />
+          <Line style="w-fullLine ml-4" />
+          <SubLink href={`/instruction`} text={t('instruction')} style="pl-7" />
           <Line style="w-fullLine ml-4" />
           <SubLink
-            href={`/instruction`}
-            text="Read the instruction"
+            text={t('localization')}
             style="pl-7"
+            href={`/localization`}
           />
           <Line style="w-fullLine ml-4" />
-          <SubLink text="Localization" style="pl-7" href={`/localization`} />
-          <Line style="w-fullLine ml-4" />
-          <SubLink href="/not-ready" text="About roles" style="pl-7" />
+          <SubLink href="/not-ready" text={t('roles')} style="pl-7" />
           <Line style="w-fullLine ml-4" />
         </span>
       )}

@@ -1,5 +1,6 @@
 'use client';
 import React, { FC, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import Button from '@/components/common/ui/button';
 import { ButtonColor, ButtonType } from '@/components/common/ui/button/types';
@@ -19,6 +20,8 @@ import { useSettingsContext } from '../../../../providers/SettingsProvider';
 //   Civilians: Fill the remaining player slots.
 
 const SettingsPage: FC = () => {
+  const t = useTranslations('SettingsPage');
+
   const { setSettingsValue } = useSettingsContext();
   const [activeGroupButton, setActiveGroupButton] = useState('left');
 
@@ -37,23 +40,25 @@ const SettingsPage: FC = () => {
           alt="The group of people setting something"
         />
         <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white w-72 leading-none text-center">
-          Settings for game
+          {t('title')}
         </h1>
       </div>
       <div className="pt-15">
         <div>
-          <h6 className="text-2xl dark:text-white text-black">Mode</h6>
+          <h6 className="text-2xl dark:text-white text-black">
+            {t('subtitle1')}
+          </h6>
           <div className="mt-2.5 mb-2.5">
             <ButtonGroupContext>
               <ButtonGroup
                 isRight={false}
-                text="Automatic"
+                text={t('buttonContent1')}
                 isActive={activeGroupButton === 'left'}
                 onClick={() => handlerGroupButtonClick('left')}
               />
               <ButtonGroup
                 isRight={true}
-                text="Manual"
+                text={t('buttonContent2')}
                 isActive={activeGroupButton === 'right'}
                 onClick={() => handlerGroupButtonClick('right')}
               />
@@ -64,7 +69,7 @@ const SettingsPage: FC = () => {
         {activeGroupButton === 'left' ? (
           <div className="pt-15">
             <h6 className="text-2xl  mb-2.5 dark:text-white text-black">
-              Number of players
+              {t('subtitle2')}
             </h6>
             <Input
               placeholder="Here"
@@ -76,7 +81,7 @@ const SettingsPage: FC = () => {
           <div>
             <div className="pt-15">
               <h6 className="text-2xl dark:text-white text-black mb-2.5">
-                Number of players
+                {t('textMafia')}
               </h6>
               <Input
                 name="mafia"
@@ -92,7 +97,7 @@ const SettingsPage: FC = () => {
             </div>
             <div className="pt-15">
               <h6 className="text-2xl dark:text-white text-black mb-2.5">
-                Number of sheriffs
+                {t('textSheriffs')}
               </h6>
               <Input
                 name="sherif"
@@ -108,7 +113,7 @@ const SettingsPage: FC = () => {
             </div>
             <div className="pt-15">
               <h6 className="text-2xl dark:text-white text-black mb-2.5">
-                Number of doctors
+                {t('textDoctors')}
               </h6>
               <Input
                 name="doctor"
@@ -124,7 +129,7 @@ const SettingsPage: FC = () => {
             </div>
             <div className="pt-15">
               <h6 className="text-2xl dark:text-white text-black mb-2.5">
-                Number of courtesans
+                {t('textCourtesans')}
               </h6>
               <Input
                 name="courtesan"
@@ -140,7 +145,7 @@ const SettingsPage: FC = () => {
             </div>
             <div className="pt-15">
               <h6 className="text-2xl dark:text-white text-black mb-2.5">
-                Number of maniacs
+                {t('textManiac')}
               </h6>
               <Input
                 name="maniac"
@@ -156,7 +161,7 @@ const SettingsPage: FC = () => {
             </div>
             <div className="pt-15">
               <h6 className="text-2xl dark:text-white text-black mb-2.5">
-                Number of civilians
+                {t('textCivilian')}
               </h6>
               <Input
                 name="civilian"
@@ -177,7 +182,7 @@ const SettingsPage: FC = () => {
         <Button
           type={ButtonType.SQUARE}
           color={ButtonColor.BLUE}
-          text="Start"
+          text={t('buttonContent3')}
           sendLink="/card"
         />
       </div>

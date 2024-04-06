@@ -1,13 +1,13 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
-import Footer from '@/components/common/layout/footer';
-import Header from '@/components/common/layout/header';
 import Card from '@/components/common/ui/card';
 
 const NotFound = () => {
+  const t = useTranslations('NotFound');
+
   return (
     <div>
-      <Header />
       <div className="flex justify-center">
         <div className=" w-360  dark:bg-blueDark bg-white flex justify-center items-center h-fullVH">
           <div className="relative">
@@ -17,13 +17,12 @@ const NotFound = () => {
               height={188.53}
               alt="This page is not ready"
             />
-            <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white w-72 leading-none">
-              This page is not ready
+            <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white text-center w-72 leading-none">
+              {t('title')}
             </h1>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

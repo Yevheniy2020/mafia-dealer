@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
 import InstructionPage from '@/components/screen/instruction-page';
 
-const Page: FC = () => {
+const Page = ({ params: { locale } }: { params: { locale: string } }) => {
+  unstable_setRequestLocale(locale);
   return <InstructionPage />;
 };
 
