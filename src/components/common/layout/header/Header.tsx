@@ -35,15 +35,7 @@ const Header: FC = () => {
     >
       <div className="flex items-center gap-1">
         <Image
-          className="hidden dark:block"
           src={'/logo-svg/white-logo.svg'}
-          width={20}
-          height={20}
-          alt={'Logo'}
-        />
-        <Image
-          className="dark:hidden "
-          src={'/logo-svg/black-logo.svg'}
           width={20}
           height={20}
           alt={'Logo'}
