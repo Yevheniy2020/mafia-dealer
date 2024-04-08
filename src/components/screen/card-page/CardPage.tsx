@@ -70,8 +70,10 @@ const CardPage: FC = () => {
   };
 
   const handleButtonRightClick = () => {
+    setCounterRolesList(prevState =>
+      activeButton == 'left' ? prevState + 1 : prevState,
+    );
     setActiveButton('right');
-    setCounterRolesList(prevState => prevState + 1);
     setCurrentType(TypeNoRoleCard.DEFAULT);
   };
   return (
