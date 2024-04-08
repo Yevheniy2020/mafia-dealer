@@ -1,0 +1,72 @@
+{
+  "Metadata": {
+    "title": "Діллер мафії"
+  },
+  "NotFound": {
+    "title": "The page has not yet been created or does not exist"
+  },
+  "MainPage": {
+    "title": "The game for a company friends",
+    "buttonContent1": "Play",
+    "buttonContent2": "Read the instruction",
+    "subtitle": "Includes all popular roles",
+    "mafia": "Mafia",
+    "sherif": "Sherif",
+    "courtesan": "Courtesan",
+    "doctor": "Doctor",
+    "maniac": "Maniac",
+    "civilian": "Civilian",
+    "buttonContent3": "Read more about roles"
+  },
+  "InstructionPage": {
+    "title": "The instruction",
+    "p1": "Objective",
+    "text1": "If you are part of the mafia, the object of the game is to eliminate all the other players. If you are not part of the mafia, the object of the game is to eliminate all the mafia players.",
+    "p2": "Game Play",
+    "text2": "Each round begins with the moderator telling all players to close their eyes. Then, the moderator has all the mafia players open their eyes. Together the mafia players decide one other player to be eliminated. This should be done silently by a finger point or the nod of the head. The moderator will then have the mafia close their eyes again, and have the doctor open his/her eyes. The doctor will silently signal for one player to be saved for the round. The moderator will have the doctor close his/her eyes, and then have the sheriffs open their eyes. Together they will silently pick one player, and the moderator will silently signal if the player selected is part of the mafia or not. This can be done with a thumbs up or thumbs down. The moderator will then have the sheriffs close their eyes, and then have every player open their eyes. The moderator will recap the events through a story that could go like, “The mafia was out for blood last night and eliminated Karen after suspecting her of informing on their illegal activities. The doctor was unable to save her in time.” Karen would now be eliminated from the game. All players then debate on who they think is part of the  mafia. Two players are selected to go on trial, and each player votes on one of these players to be eliminated. The player with more votes is eliminated from the game. The moderator starts the next round telling all remaining players to close their eyes. The round then continues the same as the first round.",
+    "p3": "Winning",
+    "text3": "The mafia wins if all other players are eliminated. The other players win if all the mafia is eliminated.",
+    "p4": "Rules",
+    "text4subtext1": "When a player is eliminated, the card is not shown to the other players. If all the sheriffs or the doctor is out of the game, the  moderator will still go through the motions of having them open  and close their eyes during a round.",
+    "text4subtext2": "Once you are eliminated from the game, you can no longer participate in the debate or vote on eliminating a player.",
+    "text4subtext3": "If the doctor saves the player that was eliminated by the mafia, the player remains in the game. The doctor can save his/her own life.",
+    "buttonContent1": "Return to home"
+  },
+  "LocalizationPage": {
+    "title": "We have the localization",
+    "text1": "English",
+    "text2": "Ukrainian"
+  },
+  "SettingsPage": {
+    "title": "Settings for game",
+    "subtitle1": "Mode",
+    "subtitle2": "Number of players",
+    "buttonContent1": "Automatic",
+    "buttonContent2": "Manual",
+    "buttonContent3": "Start",
+    "textMafia": "Number of mafia",
+    "textSheriffs": "Number of sheriffs",
+    "textDoctors": "Number of doctors",
+    "textCourtesans": "Number of courtesans",
+    "textManiac": "Number of maniacs",
+    "textCivilian": "Number of civilians"
+  },
+  "CardPage": {
+    "mafia": "YOU ARE MAFIA",
+    "sherif": "YOU ARE SHERIF",
+    "doctor": "YOU ARE DOCTOR",
+    "civilian": "YOU ARE CIVILIAN",
+    "maniac": "YOU ARE MANIAC",
+    "courtesan": "YOU ARE COURTESAN",
+    "finish": "NO MORE CARDS",
+    "buttonContent1": "Open",
+    "buttonContent2": "Next"
+  },
+  "Navigation": {
+    "home": "Home",
+    "play": "Play",
+    "instruction": "Read the instruction",
+    "localization": "Localization",
+    "roles": "About roles"
+  }
+}

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { ButtonGroupType } from '@/components/common/ui/button-group/types';
 
@@ -12,7 +12,7 @@ interface ButtonGroupProps {
   isRight: boolean;
 }
 
-const ButtonGroup: FC<ButtonGroupProps> = ({
+const ButtonGroup: React.FC<ButtonGroupProps> = ({
   text = 'Hello1',
   onClick,
   typeSend = 'button',
@@ -22,24 +22,22 @@ const ButtonGroup: FC<ButtonGroupProps> = ({
   isRight,
   ...rest
 }) => {
-  const buttonClass = (() => {
-    switch (type) {
-      case ButtonGroupType.CIRCLE:
-        return isRight ? 'text-xs rounded-e-lg' : type;
-      default:
-        return type;
-    }
-  })();
+  const buttonClass =
+    type === ButtonGroupType.CIRCLE && isRight ? 'rounded-e-lg' : type;
 
-  const activeClass = isActive ? 'bg-amber-400' : 'bg-gray-800';
-  const baseClass = `px-6 py-3 leading-loose text-white focus:z-10 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700 ${style}`;
+  const classes = `
+    ${type === ButtonGroupType.CIRCLE ? 'px-15 py-12' : 'px-25 py-12'} 
+    leading-loose 
+    text-white 
+    focus:z-10 
+    focus:text-white 
+    ${isActive ? 'bg-gold' : 'bg-blueDark'} 
+    ${buttonClass} 
+    ${style}
+  `;
+
   return (
-    <button
-      type={typeSend}
-      onClick={onClick}
-      className={`${baseClass} ${buttonClass} ${activeClass}`}
-      {...rest}
-    >
+    <button type={typeSend} onClick={onClick} className={classes} {...rest}>
       {text}
     </button>
   );

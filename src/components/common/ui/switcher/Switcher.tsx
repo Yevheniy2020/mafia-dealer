@@ -1,38 +1,69 @@
 'use client';
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import DarkIcon from '@/components/common/icons/theme/DarkIcon';
 import LightIcon from '@/components/common/icons/theme/LightIcon';
 
-interface SwitcherProps {
-  onChange?: () => void;
-  isActive?: boolean;
-}
+const switcherClasses = `
+    relative 
+    w-14 
+    h-7 
+    bg-white
+    dark:bg-dark
+    rounded-md
+    peer-checked:after:translate-x-full 
+    peer-checked:after:border-white 
+    dark:peer-checked:after:border-dark 
+    after:content-[''] 
+    after:absolute 
+    after:top-0.5
+    after:start-[4.2px] 
+    after:bg-gold
+    after:rounded-md
+    after:h-6 after:w-6 
+    after:transition-all 
+    peer-checked:bg-white
+    dark:peer-checked:bg-dark
+  `;
 
-const Switcher: FC<SwitcherProps> = ({ onChange, isActive }) => {
+const Switcher: FC = () => {
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme);
+  }, [theme]);
+
+  // Update the theme in local storage
+  const handleThemeChange = (isChecked: boolean) => {
+    const newTheme = isChecked ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+    setTheme(newTheme);
+  };
+
   return (
     <label className="inline-flex items-center cursor-pointer">
       <input
+        checked={theme === 'dark'}
         type="checkbox"
-        value=""
         className="sr-only peer"
-        checked={isActive}
-        onChange={onChange}
+        onChange={e => handleThemeChange(e.target.checked)}
       />
-      <div
-        className="relative w-14 h-7 bg-slate-950 rounded-md dark:peer-focus:ring-slate-950 peer dark:bg-gray-700
-      peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full
-      peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5
-      after:start-[3.7px] after:bg-amber-400 after:rounded-md
-      after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-slate-950"
-      >
+      <div className={switcherClasses}>
         <span
           className={'absolute inset-0 flex justify-end items-center z-10 pr-2'}
         >
-          <DarkIcon />
+          <DarkIcon isDark={theme === 'dark'} />
         </span>
-        <span className={'absolute inset-0 flex  items-center z-10 pl-2'}>
-          <LightIcon />
+        <span className={'absolute inset-0 flex items-center z-10 pl-2'}>
+          <LightIcon isDark={theme === 'dark'} />
         </span>
       </div>
     </label>
