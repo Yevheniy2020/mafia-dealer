@@ -1,8 +1,15 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
 import Card from '@/components/common/ui/card';
 
+export const metadata: Metadata = {
+  title: 'This page is not ready',
+  openGraph: {
+    title: 'This page is not ready',
+  },
+};
 const NotFound = () => {
   const t = useTranslations('NotFound');
 
