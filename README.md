@@ -32,7 +32,7 @@ This is an app for playing mafia without cards for a group of friends
 
 ## UI Kit
 
-![preview CoffeeShop](./figma-light.png)
+![preview CoffeeShop](./figma-ui.png)
 
 > ### If you want to see the :
 >- [Template](https://www.figma.com/file/bC4lfzYbSWxkvdCXuXkhlr/Untitled?type=design&node-id=16%3A2&mode=design&t=jqVnnxeEK8m47ntR-1)
