@@ -7,6 +7,7 @@ interface CardProps {
   height?: number;
   alt?: string;
   rounded?: string;
+  id?: string;
 }
 
 const Card: FC<CardProps> = ({
@@ -15,6 +16,7 @@ const Card: FC<CardProps> = ({
   height = 206,
   alt = 'Beautiful picture!',
   rounded = 'rounded-lg',
+  id,
 }) => {
   const classes = `
     absolute 
@@ -27,8 +29,9 @@ const Card: FC<CardProps> = ({
     ${rounded}
   `;
   return (
-    <div className={`relative max-w-fit`}>
+    <div className={`relative max-w-fit overflow-hidden ${rounded}`}>
       <Image
+        id={id}
         className={rounded}
         src={src}
         width={width}
